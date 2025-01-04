@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator & Scanner</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.4/html5-qrcode.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="app-header">
+            <h1>QR Code Tool</h1>
+        </div>
+
+        <div class="tab-container">
+            <button class="tab-button active" data-tab="generate">Generate</button>
+            <button class="tab-button" data-tab="scan">Scan</button>
+            <button class="tab-button" data-tab="history">History</button>
+        </div>
+
+        <div id="generateSection" class="content-section">
+            <div class="input-group">
+                <label for="qrType">QR Code Type</label>
+                <select id="qrType">
+                    <option value="text">Text</option>
+                    <option value="url">URL</option>
+                    <option value="wifi">WiFi</option>
+                    <option value="location">Location</option>
+                    <option value="contact">Contact</option>
+                </select>
+            </div>
+
+            <div id="dynamicInputs">
+                <!-- Inputs will be dynamically added here based on selection -->
+            </div>
+
+            <button id="generateBtn" class="action-button">Generate QR Code</button>
+            
+            <div id="qrResult">
+                <div id="qrcode"></div>
+                <button id="downloadBtn" class="action-button hidden">Download QR Code</button>
+            </div>
+        </div>
+
+        <div id="scanSection" class="content-section hidden">
+            <div id="reader"></div>
+            <div id="scanResult"></div>
+        </div>
+
+        <div id="historySection" class="content-section hidden">
+            <div id="historyList"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
